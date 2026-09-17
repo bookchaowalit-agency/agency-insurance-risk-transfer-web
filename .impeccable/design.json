@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "mode": "persuade",
+  "world": "Risk matrix and transfer map",
+  "artifact": "riskmatrix",
+  "tokens": {
+    "color": {
+      "bg": "#201832",
+      "ink": "#f3efff",
+      "muted": "#c1b4d8",
+      "line": "#5b4b7d",
+      "panel": "#2c2145",
+      "accent": "#ec83d1",
+      "inverse": "#f3efff",
+      "inverseInk": "#201832"
+    },
+    "typography": {
+      "display": "Noto Serif Thai",
+      "body": "Noto Sans Thai",
+      "utility": "system monospace"
+    },
+    "spacing": {
+      "page": "clamp(18px, 5vw, 76px)",
+      "section": "clamp(67px, 10vw, 144px)"
+    },
+    "shape": {
+      "radius": "world-specific",
+      "elevation": "one deliberate surface system"
+    }
+  }
+}
