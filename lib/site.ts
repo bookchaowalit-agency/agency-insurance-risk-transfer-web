@@ -21,6 +21,7 @@ export const site = {
   "status": "locked",
   "design": {
     "projectName": "solo-agency-insurance-risk-transfer",
+    "productionUrl": "https://solo-agency-insurance-risk-transfer.vercel.app",
     "archetype": "riskmatrix",
     "motif": "riskmatrix",
     "world": "Risk matrix and transfer map",
