@@ -34,6 +34,8 @@ html { scroll-padding-top: 24px; }
 }
 /* Nav labels are Thai words now: sans at body size reads better than 12px mono. */
 .site-header nav, .pseo-nav { font-family: var(--sans); font-size: 14px; letter-spacing: normal; }
+/* Brand subtitles are Thai names, so use the readable text floor instead of the mono-label floor. */
+.brand small, .pseo-brand small { font-size: 14px; }
 .artifact-blueprint strong, .artifact-labnote strong, .artifact-architectural strong, .artifact-riskmatrix strong, .artifact-clinical strong,
 .artifact-solarfield strong, .artifact-missionbrief strong, .artifact-fieldmanual strong, .dealroom-ticker strong { font-size: 12px; }
 .signal-row span, .register-row > span { font-size: 14px; }
