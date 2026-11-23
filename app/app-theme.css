@@ -1,0 +1,15 @@
+/* Insurance & Risk Transfer overrides for the shared design-floor tokens. */
+:root {
+  --color-bg: #201832;
+  --color-surface: #2c2145;
+  --color-fg: #f3efff;
+  --color-fg-muted: #c1b4d8;
+  --color-accent: #ec83d1;
+  --color-accent-fg: #201832;
+  --color-border: #5b4b7d;
+  --color-focus: #ec83d1;
+
+  --font-sans: var(--font-sans-thai), Arial, sans-serif;
+  --font-serif: var(--font-serif-thai), Georgia, 'Times New Roman', serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+}
