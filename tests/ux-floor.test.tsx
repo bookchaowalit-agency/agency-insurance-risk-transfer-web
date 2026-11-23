@@ -9,24 +9,24 @@ import { pseoService } from '@/lib/pseo';
 import type { AgencyStatus } from '@/lib/readiness';
 import { site } from '@/lib/site';
 import { socialImage } from '@/lib/site-config';
+import { hubHref, portfolioHref } from '@/components/site-links';
 
-// 2026-11-18 review: Thai nav, honest next step for each readiness state; 2026-11-19: no sitewide cross-site footer links.
+// 2026-11-18 review: Thai nav, honest next step for each readiness state; 2026-11-23: add hub and portfolio links.
 describe('UX floor', () => {
-  it('keeps cross-site links out of the shared footer: one in-content portfolio link on the home page only', async () => {
+  it('includes hub, portfolio, privacy, status and contact links in the shared footer', async () => {
     const home = renderToString(<Home />);
     const service = renderToString(await ServicePage({ params: Promise.resolve({ slug: pseoService.slug }) }));
-    // pSEO plan: no sitewide footer links across the 14 sites (they would read as a link network).
     for (const html of [home, service]) {
       const footer = html.slice(html.lastIndexOf('<footer'));
-      expect(footer).not.toMatch(/href="https:\/\/(bookchaowalit\.com|agency\.bookchaowalit\.com)\/?(agencies)?"/);
+      expect(footer).toContain(`href="${hubHref}"`);
+      expect(footer).toContain(`href="${portfolioHref}"`);
       expect(footer).toContain('href="https://bookchaowalit.com/privacy"');
       expect(footer).toContain('href="https://monitor.bookchaowalit.com/"');
       expect(footer).toContain('href="mailto:bookchaowalit.work@gmail.com"');
     }
-    expect(home.match(/href="https:\/\/agency\.bookchaowalit\.com[^"]*"/g)).toHaveLength(1);
-    expect(home).not.toContain('href="https://bookchaowalit.com"');
-    expect(service).not.toMatch(/href="https:\/\/agency\.bookchaowalit\.com/);
-    expect(service).not.toContain('href="https://bookchaowalit.com"');
+    expect(home).toContain(`class="brand" href="${hubHref}"`);
+    expect(home).toContain(`href="${portfolioHref}">บริการ</a>`);
+    expect(home).toContain('ยังไม่เปิดรับงาน');
   });
 
   it('uses Thai nav labels that match the section headings', () => {
@@ -58,7 +58,7 @@ describe('UX floor', () => {
   });
 
   it('draws the focus ring at 3:1 or more on the page background', () => {
-    // Light :root tokens in cascade order: design-floor defaults, the site theme (if any), then globals.css.
+    // Design-floor defaults, the app theme, then the semantic aliases in globals.css.
     const tokens = new Map<string, string>();
     for (const file of ['design-floor/tokens.css', 'app-theme.css', 'globals.css']) {
       const path = join(process.cwd(), 'app', file);

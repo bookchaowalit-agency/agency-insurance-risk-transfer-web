@@ -6,6 +6,7 @@ import Home from "@/app/page";
 import ServicePage from "@/app/services/[slug]/page";
 import { pseoService } from "@/lib/pseo";
 import { site } from "@/lib/site";
+import { hubHref, portfolioHref } from "@/components/site-links";
 
 // next/font/local only works inside a Next build; the layout just needs the CSS variable names.
 vi.mock("next/font/local", () => ({ default: () => ({ variable: "font-var" }) }));
@@ -23,11 +24,13 @@ describe("home page", () => {
     expect(html).toContain("no client claims");
   });
 
-  it("links to the service page from the nav and the hero", () => {
+  it("links the brand to the hub, the service nav to the portfolio, and the hero to service details", () => {
     const html = renderToString(<Home />);
+    expect(html).toContain(`class="brand" href="${hubHref}"`);
+    expect(html).toContain(`href="${portfolioHref}">บริการ</a>`);
     // next/link adds the trailing slash only inside a Next build (trailingSlash: true); the export output is checked in the UI gate.
     const links = html.match(new RegExp(`href="/services/${pseoService.slug}/?"`, "g")) ?? [];
-    expect(links).toHaveLength(2);
+    expect(links).toHaveLength(1);
   });
 });
 

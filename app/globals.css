@@ -1,19 +1,19 @@
 :root {
-  --bg: #201832;
-  --ink: #f3efff;
-  --muted: #c1b4d8;
-  --line: #5b4b7d;
-  --panel: #2c2145;
-  --accent: #ec83d1;
-  --inverse: #f3efff;
-  --inverse-ink: #201832;
-  --sans: var(--font-sans-thai), Arial, sans-serif;
-  --serif: var(--font-serif-thai), Georgia, 'Times New Roman', serif;
-  --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  --bg: var(--color-bg);
+  --ink: var(--color-fg);
+  --muted: var(--color-fg-muted);
+  --line: var(--color-border);
+  --panel: var(--color-surface);
+  --accent: var(--color-accent);
+  --inverse: var(--color-fg);
+  --inverse-ink: var(--color-accent-fg);
+  --sans: var(--font-sans);
+  --serif: var(--font-serif);
+  --mono: var(--font-mono);
   --display: var(--serif);
   /* 2026-11-18 review: focus ring/lines >= 3:1 on --bg; accent as text >= 4.5:1 on --bg and --panel. */
-  --focus: #ec83d1;
-  --accent-text: #ec83d1;
+  --focus: var(--color-focus);
+  --accent-text: var(--color-accent);
 }
 
 * { box-sizing: border-box; }
